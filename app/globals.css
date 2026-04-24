@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+@layer utilities {
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .tab-active {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+    }
+    
+    .input-field {
+        transition: all 0.3s ease;
+        border: 2px solid #e5e7eb;
+    }
+    
+    .input-field:focus {
+        border-color: #059669;
+        box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        transform: translateY(-1px);
+    }
+    
+    .result-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .result-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .privacy-badge {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border-right: 4px solid #f59e0b;
+    }
+}
+
+@media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .glass-panel { box-shadow: none; border: 1px solid #ddd; }
+}
